@@ -29,9 +29,9 @@ function Works() {
   ];
 
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center gap-12 bg-black py-16 px-8 ">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center  md:gap-12 bg-black py-16 px-8 ">
       <motion.h2 
-        className="text-5xl font-[Inter] font-bold text-white mb-6" 
+        className="text-xl md:text-5xl font-[Inter] font-bold text-white mb-6" 
         initial={{ opacity: 0, y: -20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.6, type: "spring" }}
@@ -39,7 +39,7 @@ function Works() {
         See Our Past Works
       </motion.h2>
       <motion.p 
-        className="text-xl text-center text-gray-300 max-w-3xl mb-10 font-[Inter]" 
+        className="text-sm md:text-xl text-center text-gray-300 max-w-3xl mb-10  font-[Inter]" 
         initial={{ opacity: 0, scale: 0.8 }} 
         animate={{ opacity: 1, scale: 1 }} 
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}

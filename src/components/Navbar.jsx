@@ -34,9 +34,9 @@ function Navbar() {
         <img
           src="/doc.png"
           alt="Logo"
-          className="h-16 mr-2 transition-transform duration-300 transform hover:scale-110"
+          className="h-10 lg:h-16 mr-2 transition-transform duration-300 transform hover:scale-110"
         />
-        <div className="text-[#C2C2C2] text-5xl font-semibold font-[Inter]">
+        <div className="text-[#C2C2C2] text-3xl md:text-5xl font-semibold font-[Inter]">
           DoC
         </div>
       </div>
@@ -96,7 +96,7 @@ function Navbar() {
                 key={link.title}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-white text-3xl font-semibold transition-colors duration-300
+                  `text-white text-xl font-semibold transition-colors duration-300
                  ${isActive ? "text-blue-500" : "hover:text-blue-400"}`
                 }
                 onClick={() => setIsOpen(false)}
@@ -107,7 +107,7 @@ function Navbar() {
 
             <Link
               to="mailto:designocrats.nimbus@nith.ac.in"
-              className="bg-blue-500 text-white px-6 py-4 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer text-2xl"
+              className="bg-blue-500 text-white px-6 py-4 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer text-xl lg:text-2xl font-[Inter]"
               onClick={() => setIsOpen(false)}
             >
               Contact

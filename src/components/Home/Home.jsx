@@ -6,7 +6,7 @@ import Works from "../Works/Works";
 function Home() {
   return (
     <>
-      <section className="bg-black text-white min-h-screen flex items-center justify-center px-6 md:px-8 font-[Inter]">
+      <section className="bg-black text-white h-[50%] md:h-screen flex items-center justify-center pt-10 px-6 md:px-8 font-[Inter]">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-x-10 md:gap-x-40 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -14,13 +14,13 @@ function Home() {
             transition={{ duration: 1 }}
             className="space-y-6  text-center md:text-left"
           >
-            <p className="text-blue-400 font-semibold uppercase tracking-wide">
+            <p className="text-blue-400 font-semibold uppercase tracking-wide text-xs md:text-lg">
               Very proud to introduce
             </p>
-            <h1 className="text-5xl md:text-5xl font-extrabold">
+            <h1 className="text-3xl md:text-5xl font-extrabold">
               Design O Crats
             </h1>
-            <p className="text-gray-300 leading-relaxed text-left md:text-lg font-medium">
+            <p className="text-gray-300 leading-relaxed text-left md:text-lg font-medium text-sm">
               The Departmental Club of Architecture at the National Institute of
               Technology, Hamirpur, is a vibrant student-driven organization
               dedicated to fostering creativity, innovation, and excellence in
@@ -74,12 +74,12 @@ function Home() {
 
       <section className="text-white py-6 md:py-10 w-full min-h-[60vh] md:min-h-[80vh] flex flex-col items-center justify-center font-[Inter]">
         <div className="container mx-auto text-center flex flex-col items-center justify-center gap-6 md:gap-8 px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-200">
+          <h2 className="text-lg md:text-3xl font-bold text-gray-200">
             Meet Your Club Coordinators
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-4xl justify-center content-center">
-            <div className="w-90 h-70 p-2 place-self-center  md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
-              <p className="text-sm md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
+            <div className="w-70 h-60 p-2 place-self-center  md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+              <p className="text-xs md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
                 “I am very happy to join as Club Coordinator of DoC. I am
                 willing to bring all my past experiences and expertise for the
                 benefit of the club.”
@@ -99,8 +99,8 @@ function Home() {
               </p>
             </div>
 
-            <div className="w-90 h-70 p-2 place-self-center md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
-              <p className="text-sm md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
+            <div className="w-70 h-60 p-2 place-self-center md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+              <p className="text-xs md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
                 &quot;I am excited to take on the role of CC of DoC. I am eager
                 to contribute my skills and experiences for the growth and
                 success of the club.&quot;
