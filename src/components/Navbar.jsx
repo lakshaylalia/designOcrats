@@ -46,7 +46,7 @@ function Navbar() {
 
       <div className="hidden md:block">
         <Link
-          to="mailto:email@example.com"
+          to="mailto:designocrats.nimbus@nith.ac.in"
           className="bg-blue-500 text-white px-5 py-3 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer font-[Inter]"
         >
           Contact
@@ -78,7 +78,7 @@ function Navbar() {
             </NavLink>
           ))}
           <Link
-            to="mailto:email@example.com"
+            to="mailto:designocrats.nimbus@nith.ac.in"
             className="bg-blue-500 text-white px-5 py-3 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer"
             onClick={() => setIsOpen(false)}
           >
