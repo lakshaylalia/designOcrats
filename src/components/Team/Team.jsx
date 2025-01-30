@@ -7,13 +7,13 @@ const teamMembers = [
       {
         name: "Mirza Abdullah Beg",
         role: "Club Coordinator",
-        image: "/src/assets/mirza.jpg",
+        image: "/mirza.jpg",
         contact: "+91 90051 79742",
       },
       {
         name: "Saksham Wallia",
         role: "Club Coordinator",
-        image: "/src/assets/saksham.jpg",
+        image: "/saksham.jpg",
         contact: "+919882384226",
       },
     ],
@@ -41,13 +41,13 @@ const teamMembers = [
       {
         name: "Amritansh Chaubey",
         role: "Club Coordinator",
-        image: "/src/assets/amritansh.jpg",
+        image: "/amritansh.jpg",
         contact: "+91 8922826935",
       },
       {
         name: "Jaydeep Darji",
         role: "Club Coordinator",
-        image: "/src/assets/jaydeep.jpg",
+        image: "/jaydeep.jpg",
         contact: "+91 8082775368",
       },
     ],
@@ -56,7 +56,7 @@ const teamMembers = [
 
 const TeamPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-6 md:px-20 flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white py-16 px-6 md:px-20 flex flex-col items-center font-[Inter]">
       <motion.h1
         className="text-4xl md:text-6xl font-bold text-center mb-10"
         initial={{ opacity: 0, y: -50 }}
@@ -67,11 +67,11 @@ const TeamPage = () => {
       </motion.h1>
 
       {teamMembers.map((yearData, index) => (
-        <div key={index} className="w-full max-w-4xl mb-12">
+        <div key={index} className="w-full max-w-4xl mb-12 font-[Inter] cursor-pointer">
           <h2 className="text-3xl font-semibold text-center mb-6">
             {yearData.year}
           </h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-8 font-[Inter]">
             {yearData.members.map((member, idx) => (
               <motion.div
                 key={idx}
@@ -83,7 +83,7 @@ const TeamPage = () => {
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />
-                <motion.div className="absolute inset-0 flex flex-col items-center justify-end text-center bg-black/50 bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity p-4">
+                <motion.div className="absolute inset-0 flex flex-col items-center justify-end text-center bg-black/50 bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity p-4 font-[Inter]">
                   <h3 className="text-xl font-semibold">{member.name}</h3>
                   <p className="text-sm text-gray-300">{member.role}</p>
                   <p className="text-sm mt-2 max-w-xs">{member.contact}</p>

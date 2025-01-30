@@ -57,10 +57,10 @@ function Works() {
             key={photo.source}
             src={photo.source}
             alt={photo.desc}
-            className="h-40 w-40 md:h-48 md:w-48 lg:h-72 lg:w-72 object-cover transform transition-transform duration-300 hover:scale-110 rounded-2xl shadow-2xl cursor-pointer"
-            whileHover={{ scale: 1.2, rotate: 5 }}
+            className="h-40 w-40 md:h-48 md:w-48 lg:h-72 lg:w-72 object-cover transform transition-transform duration-300 group-hover: rounded-2xl shadow-2xl cursor-pointer"
+            whileHover={{ scale: 1.2, rotate: Math.random()*(10) }}
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            animate={{ opacity: 1, y: Math.random() * 10  }}
             transition={{ duration: 0.5, delay: index * 0.2, type: "spring" }}
           />
         ))}
