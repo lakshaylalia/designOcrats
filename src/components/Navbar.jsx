@@ -82,10 +82,10 @@ function Navbar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 left-0 h-screen w-screen bg-black/90 backdrop-blur-sm flex flex-col items-center justify-evenly space-y-6 shadow-lg md:hidden"
+            className="fixed top-0 left-0 h-screen w-screen bg-black/90 backdrop-blur-lg flex flex-col items-center p-8 gap-y-6 space-y-6 shadow-lg md:hidden"
           >
             <button
-              className="absolute top-6 right-6 text-white text-3xl"
+              className="absolute top-6 right-6 text-white text-xl"
               onClick={() => setIsOpen(false)}
             >
               <FaTimes />

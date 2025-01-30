@@ -47,7 +47,7 @@ function Works() {
         &quot;A showcase of our past projects highlighting innovative designs, collaborative efforts, and impactful achievements.&quot;
       </motion.p>
       <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12" 
+        className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-12" 
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -57,7 +57,7 @@ function Works() {
             key={photo.source}
             src={photo.source}
             alt={photo.desc}
-            className="h-72 w-72 object-cover transform transition-transform duration-300 hover:scale-110 rounded-2xl shadow-2xl cursor-pointer"
+            className="h-40 w-40 md:h-48 md:w-48 lg:h-72 lg:w-72 object-cover transform transition-transform duration-300 hover:scale-110 rounded-2xl shadow-2xl cursor-pointer"
             whileHover={{ scale: 1.2, rotate: 5 }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
