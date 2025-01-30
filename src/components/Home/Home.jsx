@@ -72,13 +72,14 @@ function Home() {
       </section>
 
       <Works />
+
       <section className="text-white py-10 w-full min-h-[80vh] flex flex-col items-center justify-center font-[Inter]">
         <div className="container mx-auto text-center flex flex-col items-center gap-8 px-4">
           <h2 className="text-3xl font-bold text-gray-200">
             Meet Your Club Coordinators
           </h2>
           <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl">
-            <div className="p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 transition-all hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+            <div className="p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
               <p className="text-md italic px-4 leading-relaxed text-left text-gray-300">
                 “I am very happy to join as Club Coordinator of DoC. I am
                 willing to bring all my past experiences and expertise for the
@@ -97,7 +98,7 @@ function Home() {
               <p className="text-sm text-gray-400">3rd Year B. Arch</p>
             </div>
 
-            <div className="p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 transition-all hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+            <div className="p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
               <p className="text-md italic px-4 leading-relaxed text-left text-gray-300">
                 &quot;I am excited to take on the role of CC of DoC. I am eager
                 to contribute my skills and experiences for the growth and
