@@ -78,7 +78,7 @@ function Home() {
             Meet Your Club Coordinators
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-4xl justify-center content-center">
-            <div className="w-70 h-60 p-2 place-self-center  md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+            <div className="w-70 h-60 md:h-70 md:w-96  p-2 place-self-center  md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
               <p className="text-xs md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
                 “I am very happy to join as Club Coordinator of DoC. I am
                 willing to bring all my past experiences and expertise for the
@@ -99,7 +99,7 @@ function Home() {
               </p>
             </div>
 
-            <div className="w-70 h-60 p-2 place-self-center md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
+            <div className="w-70 h-60 md:h-70 md:w-96 p-2 place-self-center md:p-4 rounded-2xl shadow-xl text-center border border-gray-700 hover:border-blue-500 duration-400 ease-in-out hover:scale-105 bg-gray-900/50 backdrop-blur-md">
               <p className="text-xs md:text-md italic px-3 md:px-4 leading-relaxed text-left text-gray-300">
                 &quot;I am excited to take on the role of CC of DoC. I am eager
                 to contribute my skills and experiences for the growth and
