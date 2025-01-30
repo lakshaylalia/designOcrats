@@ -95,7 +95,7 @@ function Home() {
                 Jaydeep Darji
               </h3>
               <p className="text-xs md:text-sm text-gray-400">
-                3rd Year B. Arch
+                3rd Year B. Arch (Present Coordinator)
               </p>
             </div>
 
@@ -116,7 +116,7 @@ function Home() {
                 Amritansh Chaubey
               </h3>
               <p className="text-xs md:text-sm text-gray-400">
-                3rd Year B. Arch
+                3rd Year B. Arch (Present Coordinator)
               </p>
             </div>
           </div>

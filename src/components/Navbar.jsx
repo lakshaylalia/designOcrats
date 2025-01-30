@@ -7,6 +7,7 @@ const links = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
   { title: "Works", path: "/works" },
+  { title: "Team", path: "/team" },
   {
     title: "Gallery",
     path: "https://drive.google.com/drive/folders/1775uFK2fF_-smAbRuGQF_OBzrXpf6ZcZ",
