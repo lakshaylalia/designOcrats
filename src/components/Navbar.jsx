@@ -10,22 +10,19 @@ const links = [
   { title: "Team", path: "/team" },
   {
     title: "Gallery",
-    path: "https://drive.google.com/drive/folders/1775uFK2fF_-smAbRuGQF_OBzrXpf6ZcZ",
+    path: "/gallery",
   },
 ];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
-    // Cleanup function to remove class on unmount
     return () => document.body.classList.remove("overflow-hidden");
   }, [isOpen]);
 
@@ -67,7 +64,6 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* Mobile Menu Button */}
       <button
         className="md:hidden text-white text-3xl"
         onClick={() => setIsOpen(!isOpen)}
@@ -75,7 +71,6 @@ function Navbar() {
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      {/* Full-Screen Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

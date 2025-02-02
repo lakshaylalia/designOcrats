@@ -24,13 +24,13 @@ const teamMembers = [
       {
         name: "Sarthak Prashar",
         role: "Club Coordinator",
-        image: "",
+        image: "/sarthak.jpg",
         contact: "+91 9317445987",
       },
       {
         name: "Ishika Suri",
         role: "Club Coordinator",
-        image: "",
+        image: "/ishika.jpg",
         contact: "+91 8894424842",
       },
     ],
@@ -67,7 +67,13 @@ const TeamPage = () => {
       </motion.h1>
 
       {teamMembers.map((yearData, index) => (
-        <div key={index} className="w-full max-w-4xl mb-12 font-[Inter] cursor-pointer">
+        <motion.div
+          key={index}
+          className="w-full max-w-4xl mb-12 font-[Inter] cursor-pointer"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h2 className="text-3xl font-semibold text-center mb-6">
             {yearData.year}
           </h2>
@@ -91,7 +97,7 @@ const TeamPage = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

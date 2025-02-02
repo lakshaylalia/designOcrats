@@ -70,7 +70,7 @@ const About = () => {
             {
               title: "Fun & Engaging Events",
               description:
-                "Creative events like Crafts Alley and Braintecture that encourage exploration and networking in a relaxed atmosphere.",
+                "Creative events like Crats Alley and Braintecture that encourage exploration and networking in a relaxed atmosphere.",
               align: "right",
             },
             {
