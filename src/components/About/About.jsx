@@ -6,7 +6,7 @@ const About = () => {
     <>
       <div className="relative w-full h-screen overflow-hidden">
         <motion.img
-          src="/public/doc.png"
+          src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
           alt="doc"
           className="w-full h-full object-cover absolute inset-0"
           initial={{ scale: 1.2 }}

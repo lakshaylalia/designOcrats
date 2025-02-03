@@ -30,7 +30,7 @@ function Navbar() {
     <nav className="flex items-center justify-between lg:justify-around p-4 bg-black/50 w-full shadow-md sticky top-0 z-50 font-sans backdrop-blur-md">
       <div className="flex items-center">
         <img
-          src="/doc.png"
+          src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
           alt="Logo"
           className="h-10 lg:h-16 mr-2 transition-transform duration-300 transform hover:scale-110"
         />
@@ -103,7 +103,7 @@ function Navbar() {
 
             <Link
               to="mailto:designocrats.nimbus@nith.ac.in"
-              className="bg-blue-500 text-white px-6 py-4 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer text-xl lg:text-2xl font-[Inter]"
+              className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer text-lg lg:text-2xl font-[Inter]"
               onClick={() => setIsOpen(false)}
             >
               Contact
