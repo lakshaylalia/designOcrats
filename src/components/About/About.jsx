@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import {VerticalTimeline,VerticalTimelineElement,} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import SchoolIcon from "@mui/icons-material/School";
+import StarIcon from "@mui/icons-material/Star";
+import EventIcon from '@mui/icons-material/Event';
+import { GrWorkshop } from "react-icons/gr";
+import { TbPodium } from "react-icons/tb";
+import { GoProjectSymlink } from "react-icons/go";
 
 const About = () => {
   return (
@@ -41,96 +49,109 @@ const About = () => {
         </div>
       </div>
 
-      <div className="min-h-screen bg-black text-white py-16 px-6 md:px-20 flex flex-col items-center relative overflow-hidden z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-50"></div>
-
-        <div className="relative w-full max-w-3xl z-10 flex flex-col items-center">
-          <div className="absolute left-1/2 top-0 w-1 bg-gray-600 h-full transform -translate-x-1/2"></div>
-
-  
-          {[
-            {
-              title: "Architectural Workshops",
-              description:
-                "Hands-on workshops focusing on architectural software tools, equipping participants with essential practical skills.",
-              align: "left",
-            },
-            {
-              title: "Expert Lectures",
-              description:
-                "Lectures from renowned experts sharing industry insights, experiences, and the latest trends in architecture.",
-              align: "right",
-            },
-            {
-              title: "Project Development",
-              description:
-                "Opportunities to bridge theory and practice by developing real-world architectural projects.",
-              align: "left",
-            },
-            {
-              title: "Fun & Engaging Events",
-              description:
-                "Creative events like Crats Alley and Braintecture that encourage exploration and networking in a relaxed atmosphere.",
-              align: "right",
-            },
-            {
-              title: "Projects",
-              description:
-                "DOC focuses on innovative, sustainable design solutions. Past projects include portable housing, space-efficient furniture, eco-friendly bamboo pavilions, and resonant ceiling structures for better acoustics.",
-              align: "left",
-            },
-            {
-              title: "Workshops",
-              description:
-                "Hands-on sessions cover Monolithic Expression, Fabrication, AutoCAD, SketchUp, and Photoshop, equipping students with essential design and technical skills.",
-              align: "right",
-            },
-            {
-              title: "Guest Lecture and Expert talk",
-              description:
-                "Renowned architects like Ajay Sharma and Siddharth Gautam share insights on motivation, innovation, and sustainability in architecture.",
-              align: "left",
-            },
-            {
-              title: "Events",
-              description:
-                "DOC hosts engaging events like Crats Alley, a gaming challenge, and Braintecture Quiz, a competitive architecture test. Junkyard Builders sparks creativity by using unconventional materials for design.",
-              align: "right",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.3, ease: "easeOut" }}
-            >
-              <FeatureCard
-                title={item.title}
-                description={item.description}
-                align={item.align}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+      <VerticalTimeline className="cursor-pointer">
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+          date="2025 - present"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<GrWorkshop />}
+        >
+          <h3 className="vertical-timeline-element-title md:text-xl font-[Inter]">
+            Architectural Workshops
+          </h3>
+          <p>
+            Hands-on workshops focusing on architectural software tools,
+            equipping participants with essential practical skills
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="2010 - 2011"
+          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+          icon={<TbPodium />}
+        >
+          <h3 className="vertical-timeline-element-title md:text-xl font-[Inter]">Expert Lectures</h3>
+          <p>
+            Lectures from renowned experts sharing industry insights,
+            experiences, and the latest trends in architecture
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="2008 - 2010"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<GoProjectSymlink />}
+        >
+          <h4 className="vertical-timeline-element-title md:text-xl font-[Inter]">
+            Project Development
+          </h4>
+          <p>
+            Opportunities to bridge theory and practice by developing real-world
+            architectural projects
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="2006 - 2008"
+          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+          icon={<EventIcon />}
+        >
+          <h4 className="vertical-timeline-element-title md:text-xl font-[Inter]">
+            Fun & Engaging Events
+          </h4>
+          <p>
+            Creative events like Crats Alley and Braintecture that encourage
+            exploration and networking in a relaxed atmosphere
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          date="November 2012"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<GrWorkshop />}
+        >
+          <h4 className="vertical-timeline-element-title md:text-xl font-[Inter]">Workshops</h4>
+          <p>
+            Hands-on sessions cover Monolithic Expression, Fabrication, AutoCAD,
+            SketchUp, and Photoshop, equipping students with essential design
+            and technical skills
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          date="2002 - 2006"
+          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+          icon={<TbPodium />}
+        >
+          <h4 className="vertical-timeline-element-title md:text-xl font-[Inter]">
+            Guest Lecture and Expert talk
+          </h4>
+          <p>
+            Renowned architects like Ajay Sharma and Siddharth Gautam share
+            insights on motivation, innovation, and sustainability in
+            architecture
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--education"
+          date="2001 - 2002"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<SchoolIcon />}
+        >
+          <h4 className="vertical-timeline-element-title md:text-xl font-[Inter]">Events</h4>
+          <p>
+            DOC hosts engaging events like Crats Alley, a gaming challenge, and
+            Braintecture Quiz
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
+          icon={<StarIcon />}
+        />
+      </VerticalTimeline>
     </>
-  );
-};
-
-const FeatureCard = ({ title, description, align }) => {
-  return (
-    <motion.div
-      className={`font-[Inter] relative w-full md:w-1/2 mb-12 p-6 bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-lg ease-out duration-300 group-hover:scale-105 hover:shadow-2xl cursor-pointer ${
-        align === "left" ? "ml-100 text-right" : "mr-auto text-left"
-      }`}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-    >
-      <h2 className="text-2xl font-semibold mb-3">{title}</h2>
-      <p className="text-gray-300">{description}</p>
-    </motion.div>
   );
 };
 

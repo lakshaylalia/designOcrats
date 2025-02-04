@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { X } from "lucide-react";
 
 const images = [
   {
@@ -59,9 +60,6 @@ const images = [
 function Gallery() {
   const [visibleImage, setVisibleImage] = useState(null);
 
-  const toggleImage = (image) => {
-    setVisibleImage(visibleImage === image ? null : image);
-  };
   return (
     <div className="w-full min-h-screen grid grid-cols-2 md:grid-cols-4 gap-6 p-6 place-items-center">
       {images.map((image) => (
@@ -76,12 +74,33 @@ function Gallery() {
             src={image.src}
             alt="Gallery Image"
             loading="eager"
-            className={`w-40 h-40 md:w-70 md:h-70 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105
-              ${visibleImage === image.id ? "scale-120" : "scale-100"}`}
-            onTouchStart={() => toggleImage(image.id)}
+            className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-110"
+            onTouchStart={() => setVisibleImage(image)}
+            onClick={() => setVisibleImage(image)}
           />
         </motion.div>
       ))}
+
+      {visibleImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50">
+          <button
+            className="absolute top-5 right-5 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+            onClick={() => setVisibleImage(null)}
+          >
+            <X size={30} />
+          </button>
+
+          <motion.img
+            src={visibleImage.src}
+            alt="Fullscreen Image"
+            className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.5, type: "spring" }}
+          />
+        </div>
+      )}
     </div>
   );
 }

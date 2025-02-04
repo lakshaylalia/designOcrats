@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { X } from "lucide-react"; 
 
 function Works() {
   const photos = [
@@ -29,11 +30,7 @@ function Works() {
     },
   ];
 
-  const [visibleImage, setVisibleImage] = useState(null);
-
-  const toggleImage = (image) => {
-    setVisibleImage(visibleImage === image ? null : image);
-  };
+  const [activeImage, setActiveImage] = useState(null);
 
   return (
     <section className="w-full min-h-screen flex flex-col justify-center items-center md:gap-12 bg-black py-16 px-8">
@@ -56,6 +53,7 @@ function Works() {
         collaborative efforts, and impactful achievements.&quot;
       </motion.p>
 
+      {/* Grid of images */}
       <motion.div
         className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-12"
         initial={{ opacity: 0 }}
@@ -67,17 +65,40 @@ function Works() {
             key={photo.source}
             src={photo.source}
             alt={photo.desc}
-            className={`h-40 w-40 md:h-48 md:w-48 lg:h-72 lg:w-72 object-cover transform transition-transform duration-300 rounded-2xl shadow-2xl cursor-pointer ${
-              visibleImage === photo.source ? "scale-110" : "scale-100"
-            }`}
-            onTouchStart={() => toggleImage(photo.source)}
-            whileHover={() => ({ scale: 1.2, rotate: Math.random() * 10 })}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: Math.random() * 10 }}
+            className="object-cover h-40 w-40 md:h-48 md:w-48 lg:h-72 lg:w-72 rounded-2xl shadow-2xl cursor-pointer transition-transform duration-300"
+            onClick={() => setActiveImage(photo)}
+            onTouchStart={() => setActiveImage(photo)}
+            whileHover={{ scale: 1.1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2, type: "spring" }}
           />
         ))}
       </motion.div>
+
+      
+      {activeImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50">
+          
+          <button
+            className="absolute top-5 right-5 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600"
+            onClick={() => setActiveImage(null)}
+          >
+            <X size={30} />
+          </button>
+
+          
+          <motion.img
+            src={activeImage.source}
+            alt={activeImage.desc}
+            className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.5, type: "spring" }}
+          />
+        </div>
+      )}
     </section>
   );
 }

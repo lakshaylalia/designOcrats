@@ -92,7 +92,7 @@ function Home() {
             <div
               className={`w-72 h-60 md:w-96 md:h-72 p-2 md:p-4 
                 rounded-2xl shadow-xl text-center border 
-                ${visibleCard === "jaydeep" ? "border-blue-500 scale-110" : "border-gray-700 scale-100"} 
+                ${visibleCard === "jaydeep" ? "border-blue-500 scale-105" : "border-gray-700 scale-100"} 
                 md:hover:border-blue-500 transition duration-300 ease-in-out 
                 hover:scale-105 bg-gray-900/50 backdrop-blur-md`}
                 onTouchStart={() => toggleCard("jaydeep")}
@@ -121,7 +121,7 @@ function Home() {
             <div
               className={`w-72 h-72 md:w-96 md:h-72 p-2 md:p-4 
                 rounded-2xl shadow-xl text-center border 
-                ${visibleCard === "amritansh" ? "border-blue-500 scale-110" : "border-gray-700 scale-100"} 
+                ${visibleCard === "amritansh" ? "border-blue-500 scale-105" : "border-gray-700 scale-100"} 
                 md:hover:border-blue-500 transition duration-300 ease-in-out 
                 hover:scale-105 bg-gray-900/50 backdrop-blur-md`}
                 onTouchStart={() => toggleCard("amritansh")}
