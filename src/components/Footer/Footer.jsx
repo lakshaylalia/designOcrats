@@ -23,7 +23,7 @@ function Footer() {
       return;
     }
 
-    setLoading(true); 
+    setLoading(true);
 
     const templateParams = { user_feedback: feedback };
 
@@ -40,13 +40,14 @@ function Footer() {
             position: "top-right",
             autoClose: 3000,
           });
-          setFeedback(""); 
+          setFeedback("");
         },
         () => {
           toast.error("Failed to send feedback. Try again later.", {
             position: "top-right",
             autoClose: 3000,
           });
+          setFeedback("");
         }
       )
       .finally(() => setLoading(false));
@@ -60,9 +61,9 @@ function Footer() {
   ];
 
   return (
-    <footer className="text-sm md:text-lg w-full h-[35vh] bg-gray-900/50 text-white flex flex-col items-center justify-between py-4 font-[Inter]">
-      <div className="top w-full flex items-center justify-between px-10">
-        
+    <footer className="text-sm md:text-lg w-full h-auto bg-gray-900/50 text-white flex flex-col items-center justify-between py-4 font-[Inter]">
+      <div className="top w-full grid grid-cols-2 md:grid-cols-3 gap-10 px-10">
+        {/* Left Section (Social Media and Logo) */}
         <div className="connectWithUs flex flex-col items-start gap-4">
           <div className="logo flex items-center">
             <img
@@ -76,23 +77,43 @@ function Footer() {
             <span className="font-serif">CONNECT</span> WITH US
           </div>
           <div className="icons flex items-center gap-4">
-            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Link
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <InstagramIcon className="hover:text-blue-400 transition-all" />
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Link
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <LinkedInIcon className="hover:text-blue-400 transition-all" />
             </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+            >
               <XIcon className="hover:text-blue-400 transition-all" />
             </Link>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
               <YouTubeIcon className="hover:text-blue-400 transition-all" />
             </a>
           </div>
         </div>
 
-        {/* Middle Section */}
-        <div className="directLinks flex items-center gap-10">
+        {/* Middle Section (Navigation Links) */}
+        <div className="directLinks flex flex-col md:flex-row md:justify-between items-center gap-4 md:gap-10 text-left">
           {navLinks.map((link) => (
             <NavLink
               key={link.title}
@@ -111,8 +132,7 @@ function Footer() {
         {/* Right Section (Feedback Form) */}
         <div className="feedback flex flex-col items-end gap-y-4">
           <div className="text-white font-serif text-xl">Any Queries</div>
-          <input
-            type="text"
+          <textarea
             placeholder="Leave your thoughts"
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
@@ -128,8 +148,8 @@ function Footer() {
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="bottom w-full flex flex-col gap-4">
+      {/* Bottom Section (Copyright) */}
+      <div className="bottom w-full flex flex-col items-center gap-4 mt-10">
         <div className="breakDown w-[95%] h-0.5 bg-gray-500 mx-auto"></div>
         <div className="text-center text-sm md:text-md">
           &copy; 2025{" "}
