@@ -68,7 +68,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2010 - 2011"
           iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
           icon={<TbPodium />}
         >
@@ -80,7 +79,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2008 - 2010"
           iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={<GoProjectSymlink />}
         >
@@ -94,7 +92,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="2006 - 2008"
           iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
           icon={<EventIcon />}
         >
@@ -108,7 +105,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          date="November 2012"
           iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={<GrWorkshop />}
         >
@@ -121,7 +117,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          date="2002 - 2006"
           iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
           icon={<TbPodium />}
         >
@@ -136,7 +131,6 @@ const About = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          date="2001 - 2002"
           iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
           icon={<SchoolIcon />}
         >
