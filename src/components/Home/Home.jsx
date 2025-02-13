@@ -3,7 +3,7 @@ import { CiLinkedin } from "react-icons/ci";
 import { motion } from "framer-motion";
 import Works from "../Works/Works";
 import { useState } from "react";
-import Particles from "../Space/Particles";
+import Particles from "../Background/Particles.jsx";
 
 function Home() {
   const [visibleCard, setVisibleCard] = useState(null);
@@ -83,7 +83,7 @@ function Home() {
               whileHover={{ scale: 1.05 }}
               src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/haox6qzxxtwr0y8o4d8n"
               alt="Main Visual"
-              className="rounded-2xl shadow-[0px_0px_20px_rgba(255,255,255,0.5)] w-64 md:w-auto"
+              className="rounded-2xl shadow-[0px_0px_20px_rgba(255,255,255,0.1)] w-64 md:w-auto"
             />
           </motion.div>
         </div>

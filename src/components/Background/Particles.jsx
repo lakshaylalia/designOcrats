@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
-import '../styles/Particle.css';
+import "./styles/Particle.css"
 
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 

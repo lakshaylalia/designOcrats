@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
-import Particles from "../Space/Particles";
+import Particles from "../Background/Particles.jsx";
 
 const images = [
   {
