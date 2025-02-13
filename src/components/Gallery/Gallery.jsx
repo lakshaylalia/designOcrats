@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
+import Particles from "../Space/Particles";
 
 const images = [
   {
@@ -62,6 +63,18 @@ function Gallery() {
 
   return (
     <div className="w-full min-h-screen grid grid-cols-2 md:grid-cols-4 gap-6 p-6 place-items-center">
+      <div className="absolute inset-0 -z-10">
+        <Particles
+          particleColors={["#ffffff", "#ffffff"]}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={false}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
       {images.map((image) => (
         <motion.div
           key={image.id}
