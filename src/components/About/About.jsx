@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import {VerticalTimeline,VerticalTimelineElement,} from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import SchoolIcon from "@mui/icons-material/School";
-import StarIcon from "@mui/icons-material/Star";
+// import StarIcon from "@mui/icons-material/Star";
 import EventIcon from '@mui/icons-material/Event';
 import { GrWorkshop } from "react-icons/gr";
 import { TbPodium } from "react-icons/tb";
@@ -140,10 +140,10 @@ const About = () => {
             Braintecture Quiz
           </p>
         </VerticalTimelineElement>
-        <VerticalTimelineElement
+        {/* <VerticalTimelineElement
           iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
           icon={<StarIcon />}
-        />
+        /> */}
       </VerticalTimeline>
     </>
   );

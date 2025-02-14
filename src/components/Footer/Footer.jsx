@@ -29,10 +29,10 @@ function Footer() {
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "YOUR_SERVICE_ID", 
+        "YOUR_TEMPLATE_ID",
         templateParams,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
+        "YOUR_PUBLIC_KEY" 
       )
       .then(
         () => {
