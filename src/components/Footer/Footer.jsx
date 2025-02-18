@@ -15,7 +15,7 @@ function Footer() {
   const handleClick = (e) => {
     e.preventDefault();
 
-    if (!feedback.trim()) {
+    if (!feedback.trim()) { 
       toast.warn("Please enter your feedback before sending.", {
         position: "top-right",
         autoClose: 3000,

@@ -9,13 +9,13 @@ const teamMembers = [
         name: "Mirza Abdullah Beg",
         role: "Club Coordinator",
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nrcxegg4d9kbp5ny417h",
-        contact: "+91 90051 79742",
+        // contact: "+91 90051 79742",
       },
       {
         name: "Saksham Wallia",
         role: "Club Coordinator",
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/x33zjlv2igdhnlmxncec",
-        contact: "+91 9882384226",
+        // contact: "+91 9882384226",
       },
     ],
   },
@@ -26,13 +26,13 @@ const teamMembers = [
         name: "Sarthak Prashar",
         role: "Club Coordinator",
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/tbq4rloqyf1stcmha2iw",
-        contact: "+91 9317445987",
+        // contact: "+91 9317445987",
       },
       {
         name: "Ishika Suri",
         role: "Club Coordinator",
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/knjtf9q6trsmhk5ddvdy",
-        contact: "+91 8894424842",
+        // contact: "+91 8894424842",
       },
     ],
   },
@@ -43,7 +43,7 @@ const teamMembers = [
         name: "Amritansh Chaubey",
         role: "Club Coordinator",
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nnhivshxxazmmr9olyvn",
-        contact: "+91 8922826935",
+        // contact: "+91 8922826935",
       },
       // {
       //   name: "Jaydeep Darji",
@@ -104,7 +104,7 @@ const TeamPage = () => {
                   >
                     <h3 className="text-xl font-semibold">{member.name}</h3>
                     <p className="text-sm text-gray-300">{member.role}</p>
-                    <p className="text-sm mt-2 max-w-xs">{member.contact}</p>
+                    {/* <p className="text-sm mt-2 max-w-xs">{member.contact}</p> */}
                   </motion.div>
                 </motion.div>
               );
