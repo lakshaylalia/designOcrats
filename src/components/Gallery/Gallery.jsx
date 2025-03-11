@@ -56,6 +56,34 @@ const images = [
     id: 13,
     src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/njtenrfjjpqg8s28ahrx",
   },
+  {
+    id: 14,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/umsbnv1padqj60p6peag",
+  },
+  {
+    id: 15,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/mbjmmhi3qwxlqxxiuxec",
+  },
+  {
+    id: 16,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/xqbmhgak6flcpwffic13",
+  },
+  {
+    id: 17,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/ohhpxwohwzrpljuededo",
+  },
+  {
+    id: 18,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/cecdma7wlbzetdm4gxig",
+  },
+  {
+    id: 19,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/cuyvltmqrtjkq0pczn3w",
+  },
+  {
+    id: 20,
+    src: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/rgapicqyggdrqfb3seuy",
+  },
 ];
 
 function Gallery() {
@@ -78,10 +106,16 @@ function Gallery() {
       {images.map((image) => (
         <motion.div
           key={image.id}
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, type: "spring" }}
-          whileHover={{ scale: 1.1 }}
+          transition={{
+            duration: 0.7,
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+            bounce: 0.3,
+          }}
+          whileHover={{ scale: 1.15 }}
         >
           <img
             src={image.src}

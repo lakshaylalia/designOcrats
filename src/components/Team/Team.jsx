@@ -45,12 +45,12 @@ const teamMembers = [
         image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nnhivshxxazmmr9olyvn",
         // contact: "+91 8922826935",
       },
-      // {
-      //   name: "Jaydeep Darji",
-      //   role: "Club Coordinator",
-      //   image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/zce6eneotg34qsqou1m9",
-      //   contact: "+91 8082775368",
-      // },
+      {
+        name: "Shimphrui obedient ",
+        role: "Club Coordinator",
+        image: "/cc2.jpg",
+        // contact: "+91 7005035679 ",
+      },
     ],
   },
 ];

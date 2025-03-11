@@ -2,6 +2,7 @@ import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { motion } from "framer-motion";
 import Works from "../Works/Works";
+import Event from "../ui/Event.jsx"
 import { useState } from "react";
 import Particles from "../Background/Particles.jsx";
 
@@ -88,7 +89,7 @@ function Home() {
           </motion.div>
         </div>
       </section>
-
+      {/* <Event /> */}
       <Works />
 
       {/* Coordinators Section */}
@@ -97,10 +98,10 @@ function Home() {
           <h2 className="text-lg md:text-3xl font-bold text-gray-200">
             Meet Your Club Coordinators
           </h2>
-          <div className="grid w-full max-w-4xl justify-center content-center">
+          <div className="flex flex-col md:flex-row w-full max-w-4xl justify-center content-center">
             
             {/* Card 1: Jaydeep Darji */}
-            {/* <div
+            <div
               className={`w-72 h-60 md:w-96 md:h-72 p-2 md:p-4 rounded-2xl shadow-xl text-center border my-2 mx-auto 
                 ${visibleCard === "jaydeep" ? "border-blue-500 scale-105" : "border-gray-700 scale-100"} 
                 md:hover:border-blue-500 transition duration-300 ease-in-out 
@@ -112,18 +113,18 @@ function Home() {
               </p>
               <div className="flex justify-center my-3 md:my-4">
                 <img
-                  src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/zce6eneotg34qsqou1m9"
+                  src="/cc2.jpg"
                   alt="Jaydeep Darji"
                   className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-gray-500"
                 />
               </div>
               <h3 className="text-md md:text-lg font-semibold text-blue-500">
-                Jaydeep Darji
+              Shimphrui obedient
               </h3>
               <p className="text-xs md:text-sm text-gray-400">
                 3rd Year B. Arch (Present Coordinator)
               </p>
-            </div> */}
+            </div>
 
             {/* Card 2: Amritansh Chaubey */}
             <div
