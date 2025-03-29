@@ -6,6 +6,7 @@ import About from './components/About/About'
 import Works from './components/Works/Works'
 import Team from './components/Team/Team'
 import Gallery from './components/Gallery/Gallery'
+import Events from './components/Events/Events'
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ function App() {
         {
           path : "works",
           element : <Works />
+        },
+        {
+          path : "events",
+          element : <Events />
         },
         {
           path : "team",

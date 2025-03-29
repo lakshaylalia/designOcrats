@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowJs": true, 
+    "checkJs": false,
+    "jsx": "preserve",
+    "strict": true,
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src"]
+}

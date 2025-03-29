@@ -1,5 +1,5 @@
-import { NavLink, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,14 +7,12 @@ const links = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
   { title: "Works", path: "/works" },
+  { title: "Events", path: "/events" },
   { title: "Team", path: "/team" },
-  {
-    title: "Gallery",
-    path: "/gallery",
-  },
+  { title: "Gallery", path: "/gallery" },
 ];
 
-function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -27,49 +25,48 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="flex items-center justify-between lg:justify-around p-4 bg-black/50 w-full shadow-md sticky top-0 z-50 font-sans backdrop-blur-md">
-      <div className="flex items-center">
-        <img
-          src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
-          alt="Logo"
-          className="h-10 lg:h-16 mr-2 transition-transform duration-300 transform hover:scale-110"
-        />
-        <div className="text-[#C2C2C2] text-3xl md:text-5xl font-semibold font-[Inter]">
-          DoC
+    <nav className="bg-black/50 backdrop-blur-sm fixed w-full z-50 border-b border-white/10">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
+              alt="Logo"
+              className="h-10 lg:h-16 mr-2 transition-transform duration-300 transform hover:scale-110"
+            />
+            <span className=" text-3xl md:text-4xl font-bold text-white">DoC</span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((link) => (
+              <NavLink
+                key={link.title}
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-gray-300 hover:text-white transition-colors font-semibold ${
+                    isActive ? "text-blue-500 border-b-2 border-blue-500" : ""
+                  }`
+                }
+              >
+                {link.title}
+              </NavLink>
+            ))}
+            <Link
+              to="mailto:designocrats.nimbus@nith.ac.in"
+              className="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
+
+          <button
+            className="md:hidden text-white text-3xl"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </div>
-
-      <div className="hidden md:flex space-x-10 items-center">
-        {links.map((link) => (
-          <NavLink
-            key={link.title}
-            to={link.path}
-            className={({ isActive }) =>
-              `text-[#D6D6D6] text-lg font-semibold transition-colors duration-300 font-[Inter] ${
-                isActive ? "text-blue-500" : "hover:text-blue-400"
-              }`
-            }
-          >
-            {link.title}
-          </NavLink>
-        ))}
-      </div>
-
-      <div className="hidden md:block">
-        <Link
-          to="mailto:designocrats.nimbus@nith.ac.in"
-          className="bg-blue-500 text-white px-5 py-3 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer font-[Inter]"
-        >
-          Contact
-        </Link>
-      </div>
-
-      <button
-        className="md:hidden text-white text-3xl"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </button>
 
       <AnimatePresence>
         {isOpen && (
@@ -78,7 +75,7 @@ function Navbar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 left-0 h-screen w-screen bg-black/90 backdrop-blur-lg flex flex-col items-center p-8 gap-y-6 space-y-6 shadow-lg md:hidden"
+            className="fixed top-0 left-0 h-screen w-screen bg-black/90 backdrop-blur-lg flex flex-col items-center p-8 gap-y-6 shadow-lg md:hidden"
           >
             <button
               className="absolute top-6 right-6 text-white text-xl"
@@ -92,8 +89,9 @@ function Navbar() {
                 key={link.title}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-white text-xl font-semibold transition-colors duration-300
-                 ${isActive ? "text-blue-500" : "hover:text-blue-400"}`
+                  `text-white text-xl font-semibold transition-colors duration-300 ${
+                    isActive ? "text-blue-500 border-b-2 border-blue-500" : "hover:text-blue-400"
+                  }`
                 }
                 onClick={() => setIsOpen(false)}
               >
@@ -102,8 +100,8 @@ function Navbar() {
             ))}
 
             <Link
-              to="mailto:designocrats.nimbus@nith.ac.in"
-              className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition-all duration-300 cursor-pointer text-lg lg:text-2xl font-[Inter]"
+              to="/contact"
+              className="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Contact
@@ -114,5 +112,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;

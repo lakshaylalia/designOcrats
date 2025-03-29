@@ -31,7 +31,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            Design O Crats (DOC)
+            Design O Crats
           </motion.h1>
 
           <p className="text-lg md:text-xl max-w-3xl">
