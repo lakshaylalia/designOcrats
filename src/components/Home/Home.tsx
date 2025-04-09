@@ -196,16 +196,27 @@ export default function Home() {
 
             {/* Right Column - Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, scale: 0.7}}
+              animate={{ opacity: 1,scale:0.7}}
+              transition={{ duration: 0.8 , ease: "easeIn" }}
               className="relative floating-image"
             >
               <div className="relative group">
                 <img
-                  src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
+                  src="./DOC_color.svg"
+                  // src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
+
                   alt="Architecture"
-                  className="rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105 hidden md:block"
+                  className=" transition-transform duration-800  hidden md:block"
+                  style={{ 
+                    filter: `
+                    
+                      drop-shadow(0 0 4px #EA25BF)
+                      drop-shadow(0 0 4px #31D8C4)
+                    
+                    `,
+                  
+                    willChange: "transform, filter",}}
                 />
 
               </div>
