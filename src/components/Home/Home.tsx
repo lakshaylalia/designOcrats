@@ -88,7 +88,7 @@ export default function Home() {
       image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nnhivshxxazmmr9olyvn",
       description: "“I am excited to take on the role of CC of DoC.“",
       social: {
-        linkedin: "https://linkedin.com",
+        linkedin: "https://www.linkedin.com/in/amritansh-chaubey-8012552b7/",
         instagram: "https://instagram.com"
       }
     },
@@ -98,7 +98,7 @@ export default function Home() {
       image: "/cc2.jpg",
       description: "“I am very happy to join as Club Coordinator of DoC.”",
       social: {
-        linkedin: "https://linkedin.com",
+        linkedin: "https://www.linkedin.com/in/shimphrui-obedient-03b846246/",
         instagram: "https://instagram.com"
       }
     }
