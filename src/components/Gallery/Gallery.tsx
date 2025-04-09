@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { Image as ImageIcon, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
+import { divMode } from 'tsparticles-engine';
+gsap.registerPlugin(ScrollTrigger)
+
+window.scroll({
+  behavior:'smooth'
+})
 
 interface GalleryImage {
   id: number;
@@ -140,34 +148,22 @@ export default function Gallery() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white pt-32">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-
-      <div className="container mx-auto px-4 py-16 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-2 mb-12 justify-center"
-        >
-          <ImageIcon className="text-white" />
-          <h2 className="text-3xl font-bold">Gallery</h2>
-        </motion.div>
-
-        {/* Loading State */}
-        {isLoading ? (
-          <div className="flex items-center justify-center min-h-[400px]">
-            <Loader2 className="w-12 h-12 animate-spin text-white/50" />
-          </div>
-        ) : (
-          /* Gallery Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {images.map((image, index) => (
-              <GalleryImage key={image.id} image={image} index={index} />
-            ))}
-          </div>
-        )}
-      </div>
+    <div className="px-4 py-8 mt-2">
+    <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+      {images.map((image, id) => (
+        <div key={id} className="break-inside-avoid overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+          <img
+            src={image.src}
+            alt=""
+            className="w-full object-cover"
+            style={{
+              height: `${250 + Math.random() * 200}px`,
+            }}
+          />
+        </div>
+      ))}
     </div>
+  </div>
+  
   );
 }
