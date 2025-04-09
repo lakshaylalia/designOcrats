@@ -52,7 +52,7 @@ const About = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowSections(true);
-    }, 7000);
+    }, 5990);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -95,26 +95,35 @@ const About = () => {
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Background */}
       <motion.img
-        src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
+        src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/vmxayfadskjnwv6us37w"
         alt="doc"
         className="absolute inset-0 w-full h-full object-cover object-center" 
-        animate={{ scale: 0.8 }}
+        initial={{scale:1.25}}
+        animate={{ scale: 1 }}
         transition={{ duration: 5 }}
       />
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Hero Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 md:px-20 h-[75vh]">
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-6 font-[Inter]"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          Design O Crats
-        </motion.h1>
+      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 md:px-20 h-[40vh] md:h-[75vh]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-8 hero-text"
+          >
+            <h1 className="text-4xl md:text-7xl font-bold">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
+                About
+              </span>{" "}
+              Us
+            </h1>
+            <p className="md:text-xl text-gray-300 max-w-2xl mx-auto">
+              Crafting innovative architectural solutions since 2020
+            </p>
+          </motion.div>
 
-        <p className="text-lg md:text-xl max-w-3xl">
+        <p className="md:text-xl text-gray-300 max-w-2xl mx-auto">
           <Typewriter
             words={[
               "A dynamic platform where creativity, innovation, and design converge to inspire and foster new ideas in the field of architecture.",
@@ -146,7 +155,7 @@ const About = () => {
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-2xl font-extrabold text-white mb-3 tracking-wide">
+                <h3 className="text-lg md:text-2xl font-extrabold text-white mb-3 tracking-wide">
                   {sec.title}
                 </h3>
                 <p className="text-white/80 text-base leading-relaxed">
