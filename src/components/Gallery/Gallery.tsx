@@ -19,8 +19,16 @@ interface EventSection {
   images: GalleryImage[];
 }
 
+
+
 function GalleryImage({ image, index }: { image: GalleryImage; index: number }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 5000);
+    return () => clearTimeout(timeout);
+  }, []);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -48,7 +56,7 @@ function GalleryImage({ image, index }: { image: GalleryImage; index: number }) 
           style={{
             height: `${Math.floor(250 + Math.random() * 200)}px`
           }}
-          onLoad={() => setIsLoaded(true)}
+          // onLoad={() => setIsLoaded(true)}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">

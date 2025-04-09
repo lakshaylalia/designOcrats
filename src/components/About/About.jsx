@@ -48,7 +48,7 @@ const About = () => {
   const [showSections, setShowSections] = useState(false);
   const containerRef = useRef(null);
 
-  // Wait for 7 seconds (or duration of typewriter) then show sections.
+  // Wait for 6 seconds (or duration of typewriter) then show sections.
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowSections(true);
