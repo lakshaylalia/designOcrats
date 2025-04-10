@@ -1,15 +1,27 @@
 import { useState } from "react";
-import { Building2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Footer() {
   const [feedback, setFeedback] = useState("");
+  const [sending, setSending] = useState(false);
+  const notify = () => toast.success("Feedback sent successfully!");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle feedback submission
-    console.log("Feedback submitted:", feedback);
+    setSending(true);
+    if(feedback === ""){
+      const notifyError = () => toast.error("Please enter your feedback!");
+      notifyError();
+      setSending(false);
+      return;
+    }
+    setTimeout(() =>{
+      setSending(false);
+      notify();
+    },4000)
     setFeedback("");
   };
 
@@ -111,12 +123,13 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors"
+                className={`flex items-center gap-2 px-4 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors ${sending ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 <Send size={16} />
-                Send Feedback
+               {sending ? "Sending..." : "Send Feedback"}
               </button>
             </form>
+            <ToastContainer />
           </motion.div>
         </div>
 
@@ -133,18 +146,18 @@ export default function Footer() {
             </p>
           </motion.div>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <a
+            <Link
               href="#"
               className="text-gray-400 hover:text-white transition-colors"
             >
               Privacy Policy
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="text-gray-400 hover:text-white transition-colors"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

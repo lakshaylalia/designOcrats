@@ -180,6 +180,13 @@ export default function Home() {
             }
           );
         });
+        gsap.to(".floating-image", {
+          y: "20px",
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut"
+        });
         
         gsap.utils.toArray(".faqs").forEach((el, i) => {
           gsap.fromTo(
@@ -207,12 +214,14 @@ export default function Home() {
               },
             }
           );
-        });
+        }
+      
+      );
 
 
 
       }, containerRef);
-    
+       
       return () => ctx.revert();
     }, []);
     useLayoutEffect(() => {
@@ -464,23 +473,12 @@ export default function Home() {
               className="relative floating-image"
             >
               <div className="relative group">
-                <motion.img
-                  initial={{ opacity: 0, scale: 1.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, ease: "easeIn" }}
+                <img
+                 
                   // src="./DOC_color.svg"
                   src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
 
                   alt="Architecture"
-                   style={{ 
-                     filter: `
-                     
-                       drop-shadow(0 0 4px #EA25BF)
-                       drop-shadow(0 0 4px #31D8C4)
-                     
-                     `,
-                   
-                     willChange: "transform, filter",}}
                   className=" transition-transform duration-800  hidden md:block hover:scale-150 hover:rotate-180"
                   style={{ willChange: "transform, filter", }} />
 

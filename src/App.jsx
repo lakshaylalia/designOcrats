@@ -4,6 +4,7 @@ import Layout from './Layout'
 import Home from './components/Home/Home'
 import About from './components/About/About'
 import Works from './components/Works/Works'
+import WorkDetail from './components/Works/WorkDetails'
 import Team from './components/Team/Team'
 import Gallery from './components/Gallery/Gallery'
 import Events from './components/Events/Events'
@@ -25,6 +26,10 @@ function App() {
         {
           path : "works",
           element : <Works />
+        },
+        {
+          path: "works/:id",
+          element: <WorkDetail />
         },
         {
           path : "events",

@@ -42,7 +42,7 @@ function GalleryImage({ image, index }: { image: GalleryImage; index: number }) 
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="break-inside-avoid mb-4"
     >
-      <div className="relative overflow-hidden rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
+      <div className="relative overflow-hidden rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-500 hover:scale-105 cursor-pointer">
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-white/5">
             <Loader2 className="w-8 h-8 animate-spin text-white/50" />
@@ -51,8 +51,8 @@ function GalleryImage({ image, index }: { image: GalleryImage; index: number }) 
         <img
           src={image.src}
           alt={`${image.event} - Image ${image.id}`}
-          className={`w-full object-cover transition-all duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'
-            } hover:scale-105`}
+          className={`w-full object-cover transition-all duration-500 brightness-95 ${isLoaded ? 'opacity-100' : 'opacity-0'
+            } hover:scale-110`}
           style={{
             height: `${Math.floor(250 + Math.random() * 200)}px`
           }}
