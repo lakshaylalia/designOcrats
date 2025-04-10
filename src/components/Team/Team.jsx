@@ -1,6 +1,10 @@
 import { Users2, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useInView } from "react-intersection-observer";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
   { name: "Mirza Abdullah Beg", role: "Club Coordinator", year: "2023", image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nrcxegg4d9kbp5ny417h" },
@@ -12,37 +16,38 @@ const teamMembers = [
 ];
 
 function TeamMemberCard({ member, index }) {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
+  // This component simply returns the markup.
+  // The GSAP animation is handled from the parent container.
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 transform hover:scale-105 transition-all duration-300 w-64"
+    <div
+      className="team-card bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 transform hover:scale-105 transition-all duration-300 w-64 sm:w-72 md:w-80"
     >
       <div className="relative overflow-hidden group">
-        <img src={member.image} alt={member.name} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
       <div className="p-4 text-center">
         <h3 className="text-lg font-semibold text-white">{member.name}</h3>
         <p className="text-white mt-1">{member.role}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 function YearSection({ year, members, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: -30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
       className="mb-16 text-center"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(-30px)",
+        transition: `opacity 0.6s ${index * 0.2}s ease, transform 0.6s ${index * 0.2}s ease`,
+      }}
     >
       <div className="flex justify-center items-center gap-2 mb-6">
         <ChevronRight className="text-white" />
@@ -53,26 +58,63 @@ function YearSection({ year, members, index }) {
           <TeamMemberCard key={idx} member={member} index={idx} />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Team() {
+  const containerRef = useRef(null);
   const membersByYear = teamMembers.reduce((acc, member) => {
     if (!acc[member.year]) acc[member.year] = [];
     acc[member.year].push(member);
     return acc;
   }, {});
 
-  const sortedYears = Object.keys(membersByYear).sort();
+  // Sort years in descending order.
+  const sortedYears = Object.keys(membersByYear).sort((a, b) => parseInt(b) - parseInt(a));
+
+  // Use gsap.context to scope our animations to the container.
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Select all team-card elements using gsap.utils.toArray.
+      gsap.utils.toArray(".team-card").forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          {
+            opacity: 0,
+            // Even indices come from the right; odd from the left.
+            x: i % 2 === 0 ? -150 : 150,
+            rotateY: 10,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            duration: 2,
+            ease: "power1.inOut",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+              end: "bottom 65%",
+              toggleActions: "play none none reverse",
+              scrub: true,
+              // markers: true, // Uncomment to debug positions.
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24 px-6">
+    <div ref={containerRef} className="min-h-screen bg-black text-white pt-24 px-6 overflow-hidden">
       <div className="container mx-auto py-16 relative text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex justify-center items-center gap-2 mb-12">
+        <div className="flex justify-center items-center gap-2 mb-12">
           <Users2 className="text-white" />
           <h2 className="text-3xl font-bold">Our Team</h2>
-        </motion.div>
+        </div>
         {sortedYears.map((year, index) => (
           <YearSection key={year} year={year} members={membersByYear[year]} index={index} />
         ))}

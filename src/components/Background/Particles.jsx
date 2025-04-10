@@ -129,7 +129,15 @@ const Particles = ({
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
-    const palette = particleColors && particleColors.length > 0 ? particleColors : defaultColors;
+    for (let i = 0; i < count; i++) {
+      // pick random color
+      const rand = Math.random();
+      const hex = rand < 0.8 ? "#EA25BF" : "#31D8C4";
+      const col = hexToRgb(hex);
+      colors.set(col, i * 3);
+    }
+    const palette = ["#3fa2dd", "#fe97d6", "#f4fff4"];
+
 
     for (let i = 0; i < count; i++) {
       let x, y, z, len;
@@ -142,14 +150,17 @@ const Particles = ({
       const r = Math.cbrt(Math.random());
       positions.set([x * r, y * r, z * r], i * 3);
       randoms.set([Math.random(), Math.random(), Math.random(), Math.random()], i * 4);
-      const col = hexToRgb(palette[Math.floor(Math.random() * palette.length)]);
+      const rand = Math.random();
+      const hex = rand < 0.8 ? "#EA25BF" : "#31D8C4"; // 80/20 distribution
+      const col = hexToRgb(hex);
+      
       colors.set(col, i * 3);
     }
 
     const geometry = new Geometry(gl, {
       position: { size: 3, data: positions },
       random: { size: 4, data: randoms },
-      color: { size: 3, data: colors },
+      color: { size:3, data: colors },
     });
 
     const program = new Program(gl, {
