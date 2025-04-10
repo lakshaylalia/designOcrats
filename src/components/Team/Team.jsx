@@ -71,7 +71,7 @@ export default function Team() {
   }, {});
 
   // Sort years in descending order.
-  const sortedYears = Object.keys(membersByYear).sort((a, b) => parseInt(b) - parseInt(a));
+  const sortedYears = Object.keys(membersByYear).sort((a, b) => parseInt(a) - parseInt(b));
 
   // Use gsap.context to scope our animations to the container.
   useLayoutEffect(() => {
