@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer className="bg-black border-t border-white/10">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <motion.div {...fadeIn} className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <img

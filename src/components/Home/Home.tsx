@@ -130,7 +130,7 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 pt-32 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex sm:flex-col md:flex-row lg:flex-row  lg:justify-around gap-12 items-center ">
             {/* Left Column - Text Content */}
             <div ref={textRef} className="space-y-8">
               <motion.div
