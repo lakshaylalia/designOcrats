@@ -378,7 +378,7 @@ export default function Home() {
     
 
   return (
-    <motion.div ref={containerRef} className="min-h-screen bg-black text-white">
+    <motion.div ref={containerRef} className="min-h-screen bg-black text-white overflow-hidden">
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center">
         {/* Animated background gradients */}
@@ -457,6 +457,7 @@ export default function Home() {
 
             {/* Right Column - Image */}
             <motion.div
+              ref={LogoRef}
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 0.7 }}
               transition={{ duration: 0.8, ease: "easeIn" }}
@@ -471,6 +472,15 @@ export default function Home() {
                   src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
 
                   alt="Architecture"
+                   style={{ 
+                     filter: `
+                     
+                       drop-shadow(0 0 4px #EA25BF)
+                       drop-shadow(0 0 4px #31D8C4)
+                     
+                     `,
+                   
+                     willChange: "transform, filter",}}
                   className=" transition-transform duration-800  hidden md:block hover:scale-150 hover:rotate-180"
                   style={{ willChange: "transform, filter", }} />
 
