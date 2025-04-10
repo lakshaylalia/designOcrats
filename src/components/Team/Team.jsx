@@ -95,7 +95,7 @@ export default function Team() {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
-              end: "bottom 65%",
+              end: "bottom 75%",
               toggleActions: "play none none reverse",
               scrub: true,
               // markers: true, // Uncomment to debug positions.
