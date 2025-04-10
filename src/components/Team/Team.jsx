@@ -91,7 +91,7 @@ export default function Team() {
             x: 0,
             rotateY: 0,
             duration: 2,
-            ease: "power1.inOut",
+            ease: "power2.inOut",
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
