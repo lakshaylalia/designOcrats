@@ -515,7 +515,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-32 mission-section"
           >
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h2 ref={MissionHeadingref} className="text-4xl font-bold mb-4">Our Mission</h2>
               <p ref={missionTextRef} className="text-gray-400 max-w-2xl mx-auto">
                 Empowering students to explore and excel in architectural design through innovation and collaboration.
