@@ -100,19 +100,20 @@ export default function Home() {
             el,
             {
               opacity: 0,
-              y: i % 2 === 0 ? 0: -300,
+              Y:100,
               rotateY: 10,
             },
             {
               opacity: 1,
               x: 0,
+              y:0,
               rotateY: 0,
               duration: 2,
               ease: "power3.inOut",
                 scrollTrigger: {
                 trigger: el,
-                start: "top 80%", // start animation when the top of the element hits 80% of viewport height
-                end:"bottom 70%",
+                start: "top 100%", // start animation when the top of the element hits 80% of viewport height
+                end:"bottom 100%",
                 // markers: true, // uncomment to see visual markers for debugging
                 toggleActions: "play none none reverse",
                 scrub:true,
