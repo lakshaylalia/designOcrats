@@ -80,11 +80,14 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-gray-400">
                 <MapPin size={16} className="text-white" />
-                NIT Hamirpur, HP
+                <Link to="https://maps.app.goo.gl/BL9d7hYL9acVtBa66" target="_blank">
+                  {" "}
+                  NIT Hamirpur, HP
+                </Link>
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Phone size={16} className="text-white" />
-                <a href="tel:+918922826935">Call Now</a>
+                <Link href="tel:+918922826935">Call Now</Link>
                 +91 8922826935
               </li>
               <li className="flex items-center gap-2 text-gray-400">

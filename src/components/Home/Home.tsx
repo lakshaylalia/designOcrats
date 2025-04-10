@@ -378,7 +378,7 @@ export default function Home() {
     
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black text-white overflow-hidden">
+    <motion.div ref={containerRef} className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center">
         {/* Animated background gradients */}
@@ -456,29 +456,23 @@ export default function Home() {
             </div>
 
             {/* Right Column - Image */}
-            <motion.div ref={LogoRef}
-              initial={{ opacity: 0, scale: 0.7}}
-              animate={{ opacity: 1,scale:0.7}}
-              transition={{ duration: 0.8 , ease: "easeIn" }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 0.7 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
               className="relative floating-image"
             >
               <div className="relative group">
-                <img
-                  src="./DOC_color.svg"
-                  // src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
+                <motion.img
+                  initial={{ opacity: 0, scale: 1.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, ease: "easeIn" }}
+                  // src="./DOC_color.svg"
+                  src="https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/gboyrhzs1ojgyne6vhyd"
 
                   alt="Architecture"
-                  className=" transition-transform duration-800  hidden md:block"
-                  style={{ 
-                    filter: `
-                    
-                      drop-shadow(0 0 4px #EA25BF)
-                      drop-shadow(0 0 4px #31D8C4)
-                    
-                    `,
-                  
-                    willChange: "transform, filter",}}
-                />
+                  className=" transition-transform duration-800  hidden md:block hover:scale-150 hover:rotate-180"
+                  style={{ willChange: "transform, filter", }} />
 
               </div>
             </motion.div>
@@ -616,7 +610,7 @@ export default function Home() {
                     onClick={() => toggleFAQ(index)}
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
                   >
-                    <h3 className="text-xl font-semibold">{faq.question}</h3>
+                    <h3 className="text-sm font-semibold">{faq.question}</h3>
                     {faq.isOpen ? (
                       <Minus className="text-orange-500 flex-shrink-0" />
                     ) : (
@@ -642,6 +636,6 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
