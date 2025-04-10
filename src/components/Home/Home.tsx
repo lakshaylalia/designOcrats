@@ -198,7 +198,7 @@ export default function Home() {
                 scrollTrigger: {
                 trigger: el,
                 start: "top 80%", // start animation when the top of the element hits 80% of viewport height
-                end:"bottom 40%",
+                end:"bottom 60%",
                 // markers: true, // uncomment to see visual markers for debugging
                 toggleActions: "play none none reverse",
                 scrub:true,
