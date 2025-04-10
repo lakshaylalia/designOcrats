@@ -22,6 +22,8 @@ export default function Home() {
   const coordinatorsHeadingRef  = useRef(null);
   const FaqHeadingRef = useRef(null);
   const FaqTextRef = useRef(null);
+  const LogoRef = useRef(null);
+  const LeftRef = useRef(null);
   const [faqs, setFaqs] = useState<FAQ[]>([
     {
       question: "What is DesignOCrats?",
@@ -110,7 +112,7 @@ export default function Home() {
                 scrollTrigger: {
                 trigger: el,
                 start: "top 80%", // start animation when the top of the element hits 80% of viewport height
-                end:"bottom 60%",
+                end:"bottom 70%",
                 // markers: true, // uncomment to see visual markers for debugging
                 toggleActions: "play none none reverse",
                 scrub:true,
@@ -218,7 +220,7 @@ export default function Home() {
           !MissionHeadingref.current ||
           !missionTextRef.current ||
           !FaqHeadingRef.current ||
-          !coordinatorsHeadingRef.current
+          !coordinatorsHeadingRef.current || !LeftRef.current || !LogoRef
         )
           return;
     
@@ -254,7 +256,46 @@ export default function Home() {
             },
           }
         );
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: LogoRef.current,
+            start: "top 80%", // adjust as needed
+          },
+        });
     
+        // Logo enters from left and rotates
+        tl.fromTo(
+          LogoRef.current,
+          {
+            x: -200,
+            rotation: -90,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            rotation: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+          }
+        );
+    
+        // LeftRef moves up and fades in concurrently or slightly delayed
+        tl.fromTo(
+          LeftRef.current,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.6" // starts 0.6s before the previous animation ends
+        );
         gsap.fromTo(
           FaqHeadingRef.current,
           { ...commonConfig },
@@ -350,7 +391,7 @@ export default function Home() {
         <div className="container mx-auto px-4 pt-32 relative z-10">
           <div className="flex sm:flex-col md:flex-row lg:flex-row  lg:justify-around gap-12 items-center ">
             {/* Left Column - Text Content */}
-            <div ref={textRef} className="space-y-8">
+            <div ref={textRef} className="space-y-8" ref = {LeftRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -392,6 +433,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex gap-4 gsap-fade-in"
+              
               >
                 <a
                   href="https://www.instagram.com/designocrats/?hl=en"
@@ -413,7 +455,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Image */}
-            <motion.div
+            <motion.div ref={LogoRef}
               initial={{ opacity: 0, scale: 0.7}}
               animate={{ opacity: 1,scale:0.7}}
               transition={{ duration: 0.8 , ease: "easeIn" }}
