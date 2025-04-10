@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+//@ts-nocheck
+import { useEffect, useRef, useState ,useLayoutEffect } from 'react';
 import { Instagram, Linkedin, ChevronDown, Building2, Users, HelpCircle, Sparkles, Target, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
@@ -16,6 +17,13 @@ interface FAQ {
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const missionTextRef = useRef(null);
+  const MissionHeadingref = useRef(null);
+  const coordinatorsHeadingRef  = useRef(null);
+  const FaqHeadingRef = useRef(null);
+  const FaqTextRef = useRef(null);
+  const LogoRef = useRef(null);
+  const LeftRef = useRef(null);
   const [faqs, setFaqs] = useState<FAQ[]>([
     {
       question: "What is DesignOCrats?",
@@ -41,38 +49,6 @@ export default function Home() {
     })));
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".gsap-fade-in", {
-        y: 200,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power4.out"
-      });
-
-      gsap.to(".floating-image", {
-        y: "20px",
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
-      });
-
-      gsap.from(".mission-card", {
-        scrollTrigger: {
-          trigger: ".mission-section",
-          start: "top center",
-          end: "bottom center",
-          toggleActions: "play none none reverse"
-        },
-        y: 50,
-        duration: 0.8,
-        stagger: 0.2
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const stats = [
     { number: "50+", label: "Projects Completed" },
@@ -117,6 +93,289 @@ export default function Home() {
     }
   ];
 
+    useLayoutEffect(() => {
+      const ctx = gsap.context(() => {
+        gsap.utils.toArray(".section-block").forEach((el, i) => {
+          gsap.fromTo(
+            el,
+            {
+              opacity: 0,
+              y: i % 2 === 0 ? 0: -300,
+              rotateY: 10,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              rotateY: 0,
+              duration: 2,
+              ease: "power3.inOut",
+                scrollTrigger: {
+                trigger: el,
+                start: "top 80%", // start animation when the top of the element hits 80% of viewport height
+                end:"bottom 70%",
+                // markers: true, // uncomment to see visual markers for debugging
+                toggleActions: "play none none reverse",
+                scrub:true,
+            
+              },
+            }
+          );
+        });
+
+
+        gsap.utils.toArray(".mission-cards").forEach((el, i) => {
+          gsap.fromTo(
+            el,
+            {
+              opacity: 0,
+              y: 200,
+              rotateY: 10,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              y:0,
+              rotateY: 0,
+              duration: 4,
+              ease: "power2.inOut",
+                scrollTrigger: {
+                trigger: el,
+                start: "top 80%", // start animation when the top of the element hits 80% of viewport height
+                end:"bottom 60%",
+                // markers: true, // uncomment to see visual markers for debugging
+                toggleActions: "play none none reverse",
+                scrub:true,
+            
+              },
+            }
+          );
+        });
+
+
+        gsap.utils.toArray(".coordinators").forEach((el, i) => {
+          gsap.fromTo(
+            el,
+            {
+              opacity: 0,
+              y:  200,
+              rotateY: 10,
+            },
+            {
+              opacity: 1,
+              x: 0,
+              y:0,
+              rotateY: 0,
+              duration: 4,
+              ease: "power2.inOut",
+                scrollTrigger: {
+                trigger: el,
+                start: "top 80%", // start animation when the top of the element hits 80% of viewport height
+                end:"bottom 50%",
+                // markers: true, // uncomment to see visual markers for debugging
+                toggleActions: "play none none reverse",
+                scrub:true,
+            
+              },
+            }
+          );
+        });
+        
+        gsap.utils.toArray(".faqs").forEach((el, i) => {
+          gsap.fromTo(
+            el,
+            {
+              opacity: 0,
+            x: i%2==0?-200: 200,
+              rotateY: 10,
+            },
+            {
+              opacity: 1,
+              x: 0,
+            
+              rotateY: 0,
+              duration: 4,
+              ease: "power2.inOut",
+                scrollTrigger: {
+                trigger: el,
+                start: "top 80%", // start animation when the top of the element hits 80% of viewport height
+                end:"bottom 40%",
+                // markers: true, // uncomment to see visual markers for debugging
+                toggleActions: "play none none reverse",
+                scrub:true,
+            
+              },
+            }
+          );
+        });
+
+
+
+      }, containerRef);
+    
+      return () => ctx.revert();
+    }, []);
+    useLayoutEffect(() => {
+      const ctx = gsap.context(() => {
+        if (
+          !MissionHeadingref.current ||
+          !missionTextRef.current ||
+          !FaqHeadingRef.current ||
+          !coordinatorsHeadingRef.current || !LeftRef.current || !LogoRef
+        )
+          return;
+    
+        const commonConfig = {
+          opacity: 0,
+          x: -200,
+          rotateY: 10,
+        };
+    
+        const commonFinal = {
+          opacity: 1,
+          x: 0,
+          rotateY: 0,
+          duration: 3,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            start: "top 70%",
+            end: "bottom 50%",
+            toggleActions: "play none none reverse",
+            scrub: true,
+            // markers: true,
+          },
+        };
+    
+        gsap.fromTo(
+          MissionHeadingref.current,
+          { ...commonConfig },
+          {
+            ...commonFinal,
+            scrollTrigger: {
+              ...commonFinal.scrollTrigger,
+              trigger: MissionHeadingref.current,
+            },
+          }
+        );
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: LogoRef.current,
+            start: "top 80%", // adjust as needed
+          },
+        });
+    
+        // Logo enters from left and rotates
+        tl.fromTo(
+          LogoRef.current,
+          {
+            x: -200,
+            rotation: -90,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            rotation: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+          }
+        );
+    
+        // LeftRef moves up and fades in concurrently or slightly delayed
+        tl.fromTo(
+          LeftRef.current,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.6" // starts 0.6s before the previous animation ends
+        );
+        gsap.fromTo(
+          FaqHeadingRef.current,
+          { ...commonConfig },
+          {
+            ...commonFinal,
+            scrollTrigger: {
+              ...commonFinal.scrollTrigger,
+              trigger: FaqHeadingRef.current,
+            },
+          }
+        );
+    
+        gsap.fromTo(
+          coordinatorsHeadingRef.current,
+          { ...commonConfig },
+          {
+            ...commonFinal,
+            duration: 2,
+            scrollTrigger: {
+              ...commonFinal.scrollTrigger,
+              trigger: coordinatorsHeadingRef.current,
+            },
+          }
+        );
+    
+        // Mission text comes from right, so change `x` to 200
+        gsap.fromTo(
+          missionTextRef.current,
+          {
+            opacity: 0,
+            x: 200,
+            rotateY: 10,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            duration: 3,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: missionTextRef.current,
+              start: "top 70%",
+              end: "bottom 50%",
+              toggleActions: "play none none reverse",
+              scrub: true,
+              // markers: true,
+            },
+          }
+        );
+        gsap.fromTo(
+        FaqTextRef.current,
+          {
+            opacity: 0,
+            x: 200,
+            rotateY: 10,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotateY: 0,
+            duration: 4,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: FaqTextRef.current,
+              start: "top 70%",
+              end: "bottom 50%",
+              toggleActions: "play none none reverse",
+              scrub: true,
+              // markers: true,
+            },
+          }
+        );
+        
+      }, missionTextRef);
+      
+    
+      return () => ctx.revert();
+    }, []);
+    
+
   return (
     <div ref={containerRef} className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -132,7 +391,7 @@ export default function Home() {
         <div className="container mx-auto px-4 pt-32 relative z-10">
           <div className="flex sm:flex-col md:flex-row lg:flex-row  lg:justify-around gap-12 items-center ">
             {/* Left Column - Text Content */}
-            <div ref={textRef} className="space-y-8">
+            <div ref={textRef} className="space-y-8" ref = {LeftRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -174,6 +433,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex gap-4 gsap-fade-in"
+              
               >
                 <a
                   href="https://www.instagram.com/designocrats/?hl=en"
@@ -195,7 +455,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Image */}
-            <motion.div
+            <motion.div ref={LogoRef}
               initial={{ opacity: 0, scale: 0.7}}
               animate={{ opacity: 1,scale:0.7}}
               transition={{ duration: 0.8 , ease: "easeIn" }}
@@ -228,7 +488,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-8 gsap-fade-in"
+            className="mt-24 grid grid-cols-2 section-block lg:grid-cols-4 gap-8 gsap-fade-in"
           >
             {stats.map((stat, index) => (
               <div
@@ -251,12 +511,12 @@ export default function Home() {
             className="mt-32 mission-section"
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4">Our Mission</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <h2 ref={MissionHeadingref} className="text-4xl font-bold mb-4">Our Mission</h2>
+              <p ref={missionTextRef} className="text-gray-400 max-w-2xl mx-auto">
                 Empowering students to explore and excel in architectural design through innovation and collaboration.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mission-cards">
               {missions.map((mission, index) => (
                 <motion.div
                   key={index}
@@ -278,11 +538,11 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-32"
           >
-            <div className="flex items-center gap-2 mb-12 justify-center">
+            <div className="flex items-center gap-2 mb-12 justify-center" ref={coordinatorsHeadingRef}>
               <Users className="text-orange-500" size={32} />
               <h2 className="text-3xl font-bold">Our Coordinators</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 coordinators" >
               {coordinators.map((coordinator, index) => (
                 <motion.div
                   key={index}
@@ -334,22 +594,22 @@ export default function Home() {
             className="mt-32 mb-16"
           >
             <div className="text-center mb-12">
-              <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center justify-center gap-2 mb-4" ref={FaqHeadingRef}>
                 <HelpCircle className="text-orange-500" size={32} />
                 <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
               </div>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-gray-400 max-w-2xl mx-auto" ref={FaqTextRef}>
                 Find answers to common questions about DesignOCrats and our activities
               </p>
             </div>
-            <div className="max-w-3xl mx-auto space-y-4">
+            <div className="max-w-3xl mx-auto space-y-4 ">
               {faqs.map((faq, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden"
+                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden faqs"
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
