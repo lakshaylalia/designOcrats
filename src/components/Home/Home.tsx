@@ -276,8 +276,8 @@ export default function Home() {
             x: 0,
             rotation: 0,
             opacity: 1,
-            duration: 1,
-            ease: "power3.out",
+            duration: 0.5,
+            ease: "power1.out",
           }
         );
     
@@ -377,7 +377,7 @@ export default function Home() {
     
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black text-white">
+    <div ref={containerRef} className="min-h-screen bg-black text-white overflow-hidden">
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center">
         {/* Animated background gradients */}
