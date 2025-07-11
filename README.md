@@ -54,3 +54,20 @@ designOcrafts/
 ├── tailwind.config.cjs      # Tailwind theme & plugin configuration
 ├── package.json             # Project metadata and scripts
 └── README.md                # You’re reading it!
+
+```
+
+### 📦 Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) v16+ (LTS recommended)
+- npm or yarn
+
+---
+
+### ⬇️ Clone the Repository
+
+```bash
+git clone https://github.com/ayush2723/designOcrafts.git
+cd designOcrafts
