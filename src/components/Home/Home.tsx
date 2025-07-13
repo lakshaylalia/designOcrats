@@ -152,7 +152,7 @@ export default function Home() {
       .fromTo(textRef.current.children,
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
-        "-=0.6"
+        "-=0.7"
       );
 
       // Floating animation for logo
