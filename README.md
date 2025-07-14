@@ -14,7 +14,7 @@ It features a modular component architecture, responsive layout, smooth animatio
 
 ## 🌐 Live Site
 
-🔗 [Visit Live Website](https://your-deployed-site-link.com)
+🔗 [Design-O-Crats](https://design-ocrafts.vercel.app/)
 
 _Replace with your deployed URL (Vercel, Netlify, GitHub Pages, etc.)_
 
