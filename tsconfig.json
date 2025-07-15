@@ -7,8 +7,9 @@
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "noEmit": true,
-    "target": "es2015",             
-    "lib": ["dom", "es2015"]        
+    "target": "es2015",
+    "lib": ["dom", "es2015"],
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }
