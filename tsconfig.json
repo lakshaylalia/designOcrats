@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "allowJs": true, 
+    "allowJs": true,
     "checkJs": false,
     "jsx": "preserve",
     "strict": true,
     "moduleResolution": "Node",
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "target": "es2015",             
+    "lib": ["dom", "es2015"]        
   },
   "include": ["src"]
 }
