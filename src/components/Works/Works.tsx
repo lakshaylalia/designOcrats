@@ -357,7 +357,7 @@ export default function Works() {
             y: 0,
             rotateX: 0,
             duration: 0.6,
-            delay: 0.5 + i * 0.03,
+            delay: 0.5 + i * 0.02,
             ease: "back.out(1.7)"
           });
         });
