@@ -19,7 +19,7 @@ function EventCard({ title, date, image, description, index }: {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 transform transition-all duration-300 hover:scale-105"
     >
