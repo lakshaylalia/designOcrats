@@ -36,7 +36,6 @@ interface LightboxProps {
 }
 
 function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: LightboxProps) {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isAutoplay, setIsAutoplay] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
@@ -94,12 +93,12 @@ function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: Lig
         className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
         onClick={onClose}
       >
-       
+        {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-r from-orange-500/10 to-purple-500/10 blur-3xl animate-pulse" />
         </div>
 
-
+        {/* Controls */}
         <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10">
           <div className="flex items-center gap-4">
             <motion.button
@@ -131,7 +130,7 @@ function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: Lig
             <motion.button
               onClick={(e) => {
                 e.stopPropagation();
-                
+                // Download functionality
               }}
               className="p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300"
               whileHover={{ scale: 1.1 }}
@@ -151,7 +150,7 @@ function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: Lig
           </div>
         </div>
 
-        
+        {/* Navigation */}
         {images.length > 1 && (
           <>
             <motion.button
@@ -180,31 +179,22 @@ function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: Lig
           </>
         )}
 
-      
+        {/* Image */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          className="relative max-w-[90vw] max-h-[80vh] mx-auto"
+          className="relative max-w-[85vw] max-h-[75vh] mx-auto flex items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
-          {!isImageLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Loader2 className="w-12 h-12 animate-spin text-white/50" />
-            </div>
-          )}
-          
           <img
             src={currentImage.src}
             alt={currentImage.event}
-            className={`max-w-full max-h-full object-contain rounded-2xl transition-opacity duration-300 ${
-              isImageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={() => setIsImageLoaded(true)}
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
           />
         </motion.div>
 
-       
+        {/* Image Info */}
         <AnimatePresence>
           {showInfo && (
             <motion.div
@@ -245,7 +235,7 @@ function Lightbox({ images, currentIndex, isOpen, onClose, onNext, onPrev }: Lig
                 key={image.id}
                 onClick={(e) => {
                   e.stopPropagation();
-                  
+                  // Set current index logic would go here
                 }}
                 className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                   index === currentIndex 
@@ -274,19 +264,11 @@ function GalleryImage({ image, index, onImageClick }: {
   index: number; 
   onImageClick: (image: GalleryImage, index: number) => void;
 }) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoaded(true);
-    }, Math.random() * 2000 + 1000);
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
     <motion.div
@@ -296,29 +278,19 @@ function GalleryImage({ image, index, onImageClick }: {
       transition={{ duration: 0.6, delay: index * 0.05 }}
       className="break-inside-avoid mb-6 group"
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-500 hover:scale-105 cursor-pointer border border-white/10 hover:border-orange-500/50">
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/5 z-10">
-            <Loader2 className="w-8 h-8 animate-spin text-white/50" />
-          </div>
-        )}
+      <div className="relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02] cursor-pointer border border-white/10 hover:border-orange-500/50">
         
         <img
           src={image.src}
           alt={`${image.event} - Image ${image.id}`}
-          className={`w-full object-cover transition-all duration-700 brightness-95 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          } group-hover:scale-110 group-hover:brightness-110`}
-          style={{
-            height: `${Math.floor(250 + Math.random() * 200)}px`
-          }}
+          className="w-full h-64 object-cover transition-all duration-500 brightness-95 group-hover:scale-105 group-hover:brightness-110"
           onClick={() => onImageClick(image, index)}
           loading="lazy"
         />
         
-      
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      
+          {/* Action Buttons */}
           <div className="absolute top-4 right-4 flex gap-2">
             <motion.button
               onClick={(e) => {
@@ -337,7 +309,7 @@ function GalleryImage({ image, index, onImageClick }: {
             <motion.button
               onClick={(e) => {
                 e.stopPropagation();
-                
+                // Share functionality
               }}
               className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-all duration-300"
               whileHover={{ scale: 1.1 }}
@@ -369,7 +341,7 @@ function GalleryImage({ image, index, onImageClick }: {
             </div>
           </div>
 
-     
+          {/* View Button */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.button
               onClick={() => onImageClick(image, index)}
@@ -383,7 +355,7 @@ function GalleryImage({ image, index, onImageClick }: {
           </div>
         </div>
 
-        
+        {/* Decorative Elements */}
         <div className="absolute top-4 left-4 w-16 h-16 bg-gradient-to-br from-orange-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute bottom-4 right-4 w-12 h-12 bg-gradient-to-tl from-purple-500/20 to-pink-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
@@ -391,21 +363,32 @@ function GalleryImage({ image, index, onImageClick }: {
   );
 }
 
-function EventGallery({ section, index, onImageClick }: { 
-  section: EventSection; 
+function EventGallery({
+  section,
+  index,
+  onImageClick,
+  viewMode, // ✅ Added here
+}: {
+  section: EventSection;
   index: number;
-  onImageClick: (image: GalleryImage, index: number, sectionImages: GalleryImage[]) => void;
+  onImageClick: (
+    image: GalleryImage,
+    index: number,
+    sectionImages: GalleryImage[]
+  ) => void;
+  viewMode: 'masonry' | 'grid'; 
 }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (inView && sectionRef.current) {
-      gsap.fromTo(sectionRef.current,
+      gsap.fromTo(
+        sectionRef.current,
         { opacity: 0, y: 80, rotateX: -15 },
         {
           opacity: 1,
@@ -413,7 +396,7 @@ function EventGallery({ section, index, onImageClick }: {
           rotateX: 0,
           duration: 1.2,
           ease: "power3.out",
-          delay: index * 0.2
+          delay: index * 0.2,
         }
       );
     }
@@ -424,7 +407,7 @@ function EventGallery({ section, index, onImageClick }: {
       ref={sectionRef}
       className="mb-20"
     >
-      
+      {/* Section Header */}
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className={`p-4 rounded-2xl bg-gradient-to-r ${section.color} backdrop-blur-sm border border-white/10`}>
@@ -454,8 +437,11 @@ function EventGallery({ section, index, onImageClick }: {
         </div>
       </div>
 
-     
-      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 max-w-7xl mx-auto">
+      {/* Images Grid */}
+      <div className={viewMode === 'masonry' 
+        ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 max-w-7xl mx-auto" 
+        : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+      }>
         {section.images.map((image, idx) => (
           <GalleryImage 
             key={image.id} 
@@ -947,7 +933,7 @@ export default function Gallery() {
     return () => clearTimeout(timer);
   }, []);
 
-  
+  // Advanced GSAP animations
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
@@ -957,7 +943,7 @@ export default function Gallery() {
         { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
 
-     
+      // Title character animation
       if (titleRef.current) {
         const text = titleRef.current.textContent || '';
         titleRef.current.innerHTML = '';
@@ -1034,7 +1020,7 @@ export default function Gallery() {
           <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-3xl animate-pulse delay-2000" />
         </div>
         
-      
+        {/* Floating Particles */}
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -1050,7 +1036,7 @@ export default function Gallery() {
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
-      
+        {/* Enhanced Header */}
         <div ref={headerRef} className="max-w-4xl mx-auto text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="p-4 rounded-2xl bg-gradient-to-r from-orange-500/20 to-purple-500/20 backdrop-blur-sm border border-white/10">
@@ -1068,10 +1054,10 @@ export default function Gallery() {
           </p>
         </div>
 
-     
+        {/* Enhanced Controls */}
         <div className="max-w-6xl mx-auto mb-12">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-            
+            {/* Search Bar */}
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -1083,7 +1069,7 @@ export default function Gallery() {
               />
             </div>
 
-           
+            {/* Category Filters */}
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <motion.button
@@ -1103,6 +1089,7 @@ export default function Gallery() {
               ))}
             </div>
 
+            {/* View Mode Toggle */}
             <div className="flex items-center gap-2 p-1 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
               <button
                 onClick={() => setViewMode('masonry')}
@@ -1128,6 +1115,7 @@ export default function Gallery() {
           </div>
         </div>
 
+        {/* Results Info */}
         <div className="max-w-6xl mx-auto mb-8">
           <p className="text-gray-400 text-center">
             Showing <span className="text-orange-500 font-semibold">
@@ -1139,16 +1127,8 @@ export default function Gallery() {
           </p>
         </div>
 
-      
-        {isLoading ? (
-          <div className="flex items-center justify-center min-h-[400px]">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="w-16 h-16 border-4 border-orange-500/30 border-t-orange-500 rounded-full"
-            />
-          </div>
-        ) : filteredData.length > 0 ? (
+        {/* Gallery Content */}
+        {filteredData.length > 0 ? (
           <div className="space-y-20">
             {filteredData.map((section, index) => (
               <EventGallery 
@@ -1156,6 +1136,7 @@ export default function Gallery() {
                 section={section} 
                 index={index} 
                 onImageClick={handleImageClick}
+                viewMode = {viewMode}
               />
             ))}
           </div>
