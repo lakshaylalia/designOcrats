@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
-  { 
-    name: "Mirza Abdullah Beg", 
-    role: "Club Coordinator", 
-    year: "2023", 
+  {
+    name: "Mirza Abdullah Beg",
+    role: "Club Coordinator",
+    year: "2023",
     image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nrcxegg4d9kbp5ny417h",
     bio: "Leading architectural innovation with passion for sustainable design.",
     social: {
@@ -20,10 +20,10 @@ const teamMembers = [
       email: "mirza@example.com"
     }
   },
-  { 
-    name: "Saksham Wallia", 
-    role: "Club Coordinator", 
-    year: "2023", 
+  {
+    name: "Saksham Wallia",
+    role: "Club Coordinator",
+    year: "2023",
     image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/x33zjlv2igdhnlmxncec",
     bio: "Passionate about modern architectural solutions and community building.",
     social: {
@@ -32,10 +32,10 @@ const teamMembers = [
       email: "saksham@example.com"
     }
   },
-  { 
-    name: "Sarthak Prashar", 
-    role: "Club Coordinator", 
-    year: "2024", 
+  {
+    name: "Sarthak Prashar",
+    role: "Club Coordinator",
+    year: "2024",
     image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/tbq4rloqyf1stcmha2iw",
     bio: "Focused on integrating technology with architectural design principles.",
     social: {
@@ -44,10 +44,10 @@ const teamMembers = [
       email: "sarthak@example.com"
     }
   },
-  { 
-    name: "Ishika Suri", 
-    role: "Club Coordinator", 
-    year: "2024", 
+  {
+    name: "Ishika Suri",
+    role: "Club Coordinator",
+    year: "2024",
     image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/knjtf9q6trsmhk5ddvdy",
     bio: "Dedicated to creating inclusive and accessible architectural spaces.",
     social: {
@@ -56,10 +56,10 @@ const teamMembers = [
       email: "ishika@example.com"
     }
   },
-  { 
-    name: "Amritansh Chaubey", 
-    role: "Club Coordinator", 
-    year: "2025", 
+  {
+    name: "Amritansh Chaubey",
+    role: "Club Coordinator",
+    year: "2025",
     image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nnhivshxxazmmr9olyvn",
     bio: "Excited to lead DoC towards new heights of architectural excellence.",
     social: {
@@ -68,16 +68,40 @@ const teamMembers = [
       email: "amritansh@example.com"
     }
   },
-  { 
-    name: "Shimphrui Obedient", 
-    role: "Club Coordinator", 
-    year: "2025", 
+  {
+    name: "Shimphrui Obedient",
+    role: "Club Coordinator",
+    year: "2025",
     image: "/cc2.jpg",
     bio: "Happy to contribute to DoC's mission of architectural innovation.",
     social: {
       linkedin: "https://www.linkedin.com/in/shimphrui-obedient-03b846246/",
       instagram: "#",
       email: "shimphrui@example.com"
+    }
+  },
+  {
+    name: "Drisya Jayakumar",
+    role: "Club Coordinator",
+    year: "2026",
+    image: "https://res.cloudinary.com/dmhabztbf/image/upload/v1773163724/WhatsApp_Image_2026-03-10_at_10.48.11_PM_h8jzws.jpg",
+    bio: "Leading DoC towards architectural excellence and innovation.",
+    social: {
+      linkedin: "https://www.linkedin.com/in/drisya-jayakumar-29278a244/",
+      instagram: "https://www.instagram.com/drisyajayakumar41567?igsh=bXcyZjQwN21qY3Jy",
+      email: "drisy9504@gmail.com"
+    }
+  },
+  {
+    name: "Snigdha Dheer",
+    role: "Club Coordinator",
+    year: "2026",
+    image: "https://res.cloudinary.com/dmhabztbf/image/upload/v1773163722/WhatsApp_Image_2026-03-10_at_10.48.15_PM_fzy8ln.jpg",
+    bio: "Building bridges between creativity and technical expertise.",
+    social: {
+      linkedin: "https://www.linkedin.com/in/snigdha-dheer-a5a305292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/snigdhadheer/",
+      email: "snigdhadheer2905@gmail.com"
     }
   },
 ];
@@ -106,8 +130,8 @@ function TeamMemberCard({ member, index }) {
           className="h-60 w-60  object-cover mx-auto mt-6 mb-4 transition-transform duration-700 group-hover:scale-110"
           style={{ objectPosition: 'center center' }}
         />
-        
-        <motion.div 
+
+        <motion.div
           className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
@@ -211,7 +235,7 @@ export default function Team() {
     return acc;
   }, {});
 
-  const sortedYears = Object.keys(membersByYear).sort((a, b) => parseInt(a) - parseInt(b));
+  const sortedYears = Object.keys(membersByYear).sort((a, b) => parseInt(b) - parseInt(a));
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -291,7 +315,7 @@ export default function Team() {
             <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-purple-500/20 blur-2xl rounded-full opacity-50"></div>
           </div>
           <p ref={descriptionRef} className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Meet the passionate individuals who drive DesignOCrats forward, each bringing unique perspectives 
+            Meet the passionate individuals who drive DesignOCrats forward, each bringing unique perspectives
             and expertise to shape the future of architecture at NIT Hamirpur.
           </p>
         </div>

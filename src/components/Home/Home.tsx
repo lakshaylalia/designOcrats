@@ -118,23 +118,23 @@ export default function Home() {
 
   const coordinators = [
     {
-      name: "Amritansh Chaubey",
+      name: "Drisya Jayakumar",
       role: "Club Coordinator",
-      image: "https://res.cloudinary.com/dl8msplgv/image/upload/f_auto,q_auto/v1/design-o-crats/public/nnhivshxxazmmr9olyvn",
+      image: "https://res.cloudinary.com/dmhabztbf/image/upload/v1773163724/WhatsApp_Image_2026-03-10_at_10.48.11_PM_h8jzws.jpg",
       quote: "Leading DoC towards architectural excellence and innovation.",
       social: {
-        linkedin: "https://www.linkedin.com/in/amritansh-chaubey-8012552b7/",
-        instagram: "https://instagram.com"
+        linkedin: "https://www.linkedin.com/in/drisya-jayakumar-29278a244/",
+        instagram: "https://www.instagram.com/drisyajayakumar41567?igsh=bXcyZjQwN21qY3Jy"
       }
     },
     {
-      name: "Shimphrui Obedient",
+      name: "Snigdha Dheer",
       role: "Club Coordinator",
-      image: "/cc2.jpg",
+      image: "https://res.cloudinary.com/dmhabztbf/image/upload/v1773163722/WhatsApp_Image_2026-03-10_at_10.48.15_PM_fzy8ln.jpg",
       quote: "Building bridges between creativity and technical expertise.",
       social: {
-        linkedin: "https://www.linkedin.com/in/shimphrui-obedient-03b846246/",
-        instagram: "https://instagram.com"
+        linkedin: "https://www.linkedin.com/in/snigdha-dheer-a5a305292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        instagram: "https://www.instagram.com/snigdhadheer/"
       }
     }
   ];
@@ -417,7 +417,7 @@ export default function Home() {
                     <img
                       src={coordinator.image}
                       alt={coordinator.name}
-                      className="w-20 h-20 rounded-2xl object-cover border-2 border-orange-500 group-hover:border-purple-500 transition-colors duration-300"
+                      className="w-32 h-32 rounded-2xl object-cover border-2 border-orange-500 group-hover:border-purple-500 transition-colors duration-300"
                     />
                     <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
                   </div>
