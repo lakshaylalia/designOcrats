@@ -101,7 +101,7 @@ const teamMembers = [
     social: {
       linkedin: "https://www.linkedin.com/in/snigdha-dheer-a5a305292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       instagram: "https://www.instagram.com/snigdhadheer/",
-      email: "snigdha@nith.ac.in"
+      email: "snigdhadheer2905@gmail.com"
     }
   },
 ];
